@@ -1,0 +1,41 @@
+name: Storybook PR Checks
+on:
+  pull_request:
+    branches:
+      - master
+
+env:
+  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+
+jobs:
+  smartui-gihub-action:
+    name: Execute Storybook build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Create commit status
+      run: |
+        API_HOST=https://api.github.com
+        # Check out the PR branch
+        git checkout $GITHUB_HEAD_REF
+        # Get the commit ID of the last commit
+        COMMIT_ID=$(git rev-parse HEAD)
+        echo "Last commit ID of PR: $COMMIT_ID"
+        GITHUB_URL=$API_HOST/repos/$GITHUB_REPOSITORY/statuses/$COMMIT_ID
+        echo "GITHUB_URL: $GITHUB_URL"
+        echo "GITHUB_URL=$GITHUB_URL" >> $GITHUB_ENV
+   
+    - name: Install Dependencies
+      run: |
+        npm install
+        npm install @lambdatest/smartui-storybook -g
+
+    - name: Create storybook static build
+      run: npm run build-storybook
+
+    - name: Execute storybook build
+      run: |
+        smartui --version
+        smartui config create .smartui.json
+        smartui storybook ./storybook-static --config .smartui.json
