@@ -14,5 +14,5 @@
 
 3. Start Storybook
     ```
-    npm run storybook
+    npm run storybook 
     ```
