@@ -12,7 +12,7 @@
     npm install
     ```
 
-3. Start Storybook
+3. Start Storybook 
     ```
     npm run storybook 
     ```
