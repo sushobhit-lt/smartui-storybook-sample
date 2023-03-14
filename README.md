@@ -21,19 +21,21 @@
 
 1. Clone this repository
     ```
-    git clone https://github.com/pinanks/smartui-storybook.git
+    git clone https://github.com/LambdaTest/smartui-storybook-sample
     ```
-
-2. Create SmartUI Config JSON
+2. Navigate to project directory
+    ```
+    cd smartui-storybook-sample
+    ```
+3. Create SmartUI Config JSON
     ```
     smartui config create .smartui.json
     ```
-
-3. Create a docker Image
+4. Create a docker Image
     ```
     docker build -t <image_name> .
     ```
-4. Run a Docker container and test in it
+5. Run a Docker container and test in it
     ```
     docker run -e PROJECT_TOKEN="your_project_token" <image_name>
     ```
