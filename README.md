@@ -4,7 +4,7 @@
 
 1. Clone this repository
     ```
-    git clone https://github.com/pinanks/smartui-storybook.git
+    git clone https://github.com/LambdaTest/smartui-storybook-sample
     ```
 
 2. Change directory to the downloaded git repo and install packages
