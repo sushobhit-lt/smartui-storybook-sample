@@ -23,6 +23,7 @@
     ```
     git clone https://github.com/LambdaTest/smartui-storybook-sample
     ```
+
 2. Navigate to project directory
     ```
     cd smartui-storybook-sample
